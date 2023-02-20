@@ -42,7 +42,7 @@ class MainController extends Controller
 
         $movie->save();
 
-        return route('home');
+        return redirect()->route('home');
     }
 
 }
