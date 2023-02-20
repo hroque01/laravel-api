@@ -17,7 +17,8 @@ class GenreFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->words(rand(1, 3), true),
+            'description' => fake()->boolean() ? fake()->text() : null,
         ];
     }
 }
