@@ -31,6 +31,12 @@ return new class extends Migration {
      */
     public function down()
     {
-        //
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropForeign('movies_genre_id_foreign');
+        });
+        Schema::table('movies', function (Blueprint $table) {
+            $table->dropForeign('movie_tag_movie_id_foreign');
+            $table->dropForeign('movie_tag_tag_id_foreign');
+        });
     }
 };
