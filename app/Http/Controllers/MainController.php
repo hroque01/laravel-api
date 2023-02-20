@@ -25,7 +25,8 @@ class MainController extends Controller
     public function movieCreate()
     {
         $genres = Genre::all();
-        return view('pages.movie.create', compact('genres'));
+        $tags = Tag::all();
+        return view('pages.movie.create', compact('genres', 'tags'));
     }
     public function movieStore(Request $request)
     {
