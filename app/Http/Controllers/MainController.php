@@ -22,5 +22,15 @@ class MainController extends Controller
 
         return view('pages.movie.all', compact('movies'));
     }
+    public function movieCreate()
+    {
+        return view('pages.movie.create');
+    }
+    public function movieStore(Request $request)
+    {
+        $data = $request->all();
+
+        dd($data);
+    }
 
 }
