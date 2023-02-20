@@ -13,8 +13,7 @@
 <body>
     
     @include('components.header')
-    @include('components.errors')
-
+    
     @yield('content')
 
     @include('components.footer')
