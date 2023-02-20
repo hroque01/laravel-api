@@ -24,13 +24,25 @@ class MainController extends Controller
     }
     public function movieCreate()
     {
-        return view('pages.movie.create');
+        $genres = Genre::all();
+        return view('pages.movie.create', compact('genres'));
     }
     public function movieStore(Request $request)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'name' => 'required|string|min:3',
+            'year' => 'required|integer|min:0',
+            'cashOut' => 'required|integer|min:0',
+            'genre_id' => 'required|integer|min:1',
+        ]);
 
-        dd($data);
+        $genre = Genre::find($data['genre_id']);
+        $movie = Movie::make($data);
+        $movie->genre()->associate($genre);
+
+        $movie->save();
+
+        return route('home');
     }
 
 }
