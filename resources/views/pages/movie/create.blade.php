@@ -14,6 +14,7 @@
         <label for="cashOut">Cash Out</label>
         <input type="number" name="cashOut">
         <br>
+        <label for="genre_id">Genre</label>
         <select name="genre_id" id="">
             @foreach ($genres as $genre)
                 <option value="{{ $genre -> id }}">Genre {{ $genre -> name }}</option>
