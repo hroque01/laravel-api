@@ -14,6 +14,12 @@
         <label for="cashOut">Cash Out</label>
         <input type="number" name="cashOut">
         <br>
+        <select name="genre_id" id="">
+            @foreach ($genres as $genre)
+                <option value="{{ $genre -> id }}">{{ $genre -> name }}</option>
+            @endforeach
+        </select>
+        <br>
         <input type="submit" value="CREATE NEW MOVIE">
     </form>
     
