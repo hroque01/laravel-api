@@ -17,7 +17,16 @@
                         <li>
                             <div><strong>Title:</strong> {{$movie-> name}}</div>
                             <div><strong>Year:</strong> {{$movie-> year}}</div>
-                            <div><strong>Cash Out:</strong>  {{$movie-> cashOut}}&dollar;</div> 
+                            <div><strong>Cash Out:</strong>  {{$movie-> cashOut}}&dollar;</div>
+                            <div>
+                                <ul>
+                                    @foreach ($movie -> tags as $tag)
+                                        <li>
+                                            {{ $tag -> name }}
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </li>
                     @endforeach
                 </ol>

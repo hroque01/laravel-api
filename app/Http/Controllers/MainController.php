@@ -35,6 +35,7 @@ class MainController extends Controller
             'year' => 'required|integer|min:0',
             'cashOut' => 'required|integer|min:0',
             'genre_id' => 'required|integer|min:1',
+            'tags_id' => 'required|array',
         ]);
 
         $genre = Genre::find($data['genre_id']);
@@ -42,6 +43,9 @@ class MainController extends Controller
         $movie->genre()->associate($genre);
 
         $movie->save();
+
+        $tags = Tag::find($data['tags_id']);
+        $movie->tags()->sync($tags);
 
         return redirect()->route('home');
     }
