@@ -17,7 +17,7 @@ return new class extends Migration {
 
             $table->string('name', 64);
             $table->year('year');
-            $table->integer('cashOut')->unsigned()->nullable();
+            $table->bigInteger('cashOut')->unsigned()->nullable();
 
             $table->timestamps();
         });
