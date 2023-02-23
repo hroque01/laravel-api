@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
 
+use App\Http\Controllers\ApiController;
+
 Route::get('/', [MainController::class, 'home'])
     ->name('home');
 Route::get('/movie/all', [MainController::class, 'movieAll'])
@@ -21,3 +23,6 @@ Route::post('/movie/edit/{movie}', [MainController::class, 'movieUpdate'])
     ->name('movie.update');
 Route::get('/movie/delete/{movie}', [MainController::class, 'movieDelete'])
     ->name('movie.delete');
+
+//API CONTROLLER
+Route::get('/api/v1/test', [ApiController::class, 'movieAll']);
